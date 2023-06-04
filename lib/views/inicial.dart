@@ -29,6 +29,7 @@ class TelaInicial extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
+                      Navigator.pushNamed(context, '/cadastrar_banco');
                       print('Botão Admin pressionado');
                     },
                     style: ElevatedButton.styleFrom(

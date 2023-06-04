@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/recuperar_senha.dart';
 import 'package:flutter_application_1/views/login.dart';
 import 'package:flutter_application_1/views/inicial.dart';
+import 'package:flutter_application_1/views/cadastrar_banco.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginPage(),
         '/recuperar_senha': (context) => RecuperarSenha(),
-        '/inicial': (context) => TelaInicial()
+        '/inicial': (context) => TelaInicial(),
+        '/cadastrar_banco': (context) => CadastroScreen(),
       },
     );
   }
