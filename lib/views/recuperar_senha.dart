@@ -9,7 +9,8 @@ class RecuperarSenha extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color.fromARGB(255, 255, 255, 255), Colors.blue.shade400],
+            colors: Color.fromARGB(255, 46, 224, 234),
+            Color.fromARGB(255, 21, 123, 207),
           ),
         ),
         child: Center(

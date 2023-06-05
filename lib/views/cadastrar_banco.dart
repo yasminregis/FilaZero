@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/services/agencias_service.dart';
 
 class CadastroScreen extends StatefulWidget {
   @override
@@ -72,6 +73,9 @@ class _CadastroScreenState extends State<CadastroScreen> {
       );
       return;
     }
+
+    AgenciasService.salvarAgencia(nomeBanco, agencia, endereco, capacidade,
+        _horaAbertura, _horaFechamento, context);
 
     // Restante da lógica para cadastrar o banco
     // ...
