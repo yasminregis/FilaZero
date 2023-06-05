@@ -1,7 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     package="com.example.telaeditarinfo">
    <application
         android:label="telaeditarinfo"
+=======
+    package="com.example.telacadastrobanco">
+   <application
+        android:label="telacadastrobanco"
+>>>>>>> bc9872357b9cb7e7d57be7b14b020743c0bdb77f
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

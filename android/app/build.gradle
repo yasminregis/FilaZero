@@ -43,7 +43,11 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+<<<<<<< HEAD
         applicationId "com.example.telaeditarinfo"
+=======
+        applicationId "com.example.telacadastrobanco"
+>>>>>>> bc9872357b9cb7e7d57be7b14b020743c0bdb77f
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

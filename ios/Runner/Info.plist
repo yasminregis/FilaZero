@@ -13,9 +13,15 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+<<<<<<< HEAD
 	<string>telaeditarinfo</string>
 <key>CFBundleDisplayName</key>
 <string>telaeditarinfo</string>
+=======
+	<string>telacadastrobanco</string>
+<key>CFBundleDisplayName</key>
+<string>telacadastrobanco</string>
+>>>>>>> bc9872357b9cb7e7d57be7b14b020743c0bdb77f
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
