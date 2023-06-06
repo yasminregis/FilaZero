@@ -19,9 +19,10 @@ class TelaInicial extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlutterLogo(
-                size: 150,
-                textColor: Colors.white,
+              Image.asset(
+                'assets/logo.PNG',
+                width: 200,
+                height: 200,
               ),
               SizedBox(height: 50),
               Row(
@@ -60,6 +61,22 @@ class TelaInicial extends StatelessWidget {
                       ),
                     ),
                     child: Text('CLIENTE'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/agencias');
+                      print('Botão Admin pressionado');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 225, 139, 9),
+                      onPrimary: Colors.white,
+                      minimumSize: Size(120, 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                            30), // Define o formato arredondado
+                      ),
+                    ),
+                    child: Text('teste'),
                   ),
                 ],
               ),
