@@ -43,6 +43,8 @@ class AgenciasAdm extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
+                      Navigator.pushNamed(context, '/editar_informacoes_banco');
+
                       // Lógica para editar informações
                     },
                     style: ElevatedButton.styleFrom(

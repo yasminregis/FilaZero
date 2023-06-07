@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/agencias.dart';
 import 'package:flutter_application_1/views/agencias_adm.dart';
 import 'package:flutter_application_1/views/ajuda.dart';
+import 'package:flutter_application_1/views/edittar_informacoes_banco.dart';
 import 'package:flutter_application_1/views/recuperar_senha.dart';
 import 'package:flutter_application_1/views/login.dart';
 import 'package:flutter_application_1/views/inicial.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         "/agencias_adm": (context) => AgenciasAdm(),
         "/ajuda": (context) => Ajuda(),
         "/cadastrar_cliente": (context) => CadastrarCliente(),
+        "/editar_informacoes_banco": (context) => EditarInformacoes(),
       },
     );
   }
