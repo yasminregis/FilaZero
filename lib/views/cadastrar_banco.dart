@@ -1,9 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_application_1/services/agencias_service.dart';
 
 class CadastarBanco extends StatelessWidget {
+  final TextEditingController _agenciaController = TextEditingController();
+  final TextEditingController _cnpjController = TextEditingController();
+  final TextEditingController _enderecoController = TextEditingController();
+  final TextEditingController _nomeBancoontroller = TextEditingController();
+  final TextEditingController _nomeCompletoontroller = TextEditingController();
+  final TextEditingController _codigoAgenciaController =
+      TextEditingController();
+  final TextEditingController _senhaController = TextEditingController();
+  final TextEditingController _confirmaSenhaController =
+      TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    void _cadastrarAgencia() {
+      // Lógica para cadastrar a agência
+      String nomeCompleto = _nomeBancoontroller.text;
+      String cnpj = _cnpjController.text;
+      String endereco = _enderecoController.text;
+      String codigoAgencia = _agenciaController.text;
+      String senha = _senhaController.text;
+      String nomeBanco = _nomeBancoontroller.text;
+      String codAgencia = _codigoAgenciaController.text;
+      String confSenha = _confirmaSenhaController.text;
+
+      if (senha != confSenha) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Senhas informadas são diferentes')),
+        );
+        return;
+      }
+      // Faça algo com o código da agência (por exemplo, enviar para um servidor)
+
+      AgenciasService.salvarAgencia(nomeCompleto, cnpj, endereco, codigoAgencia,
+          senha, nomeBanco, codAgencia);
+    }
+
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Cadastro de Usuário'),
       ),
@@ -22,20 +59,26 @@ class CadastarBanco extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _buildTextField('Nome completo', 'Digite seu nome completo'),
+            _buildTextField('Nome completo', 'Digite seu nome completo',
+                controller: _nomeBancoontroller),
             SizedBox(height: 16),
-            _buildTextField('CNPJ', 'Digite o CNPJ'),
+            _buildTextField('CNPJ', 'Digite o CNPJ',
+                controller: _cnpjController),
             SizedBox(height: 16),
-            _buildTextField('Endereço', 'Digite o endereço'),
+            _buildTextField('Endereço', 'Digite o endereço',
+                controller: _enderecoController),
             SizedBox(height: 16),
-            _buildTextField('Senha', 'Digite sua senha', isPassword: true),
+            _buildTextField('Senha', 'Digite sua senha',
+                isPassword: true, controller: _senhaController),
             SizedBox(height: 16),
-            _buildTextField('Nome do Banco', 'Digite o nome do banco'),
+            _buildTextField('Nome do Banco', 'Digite o nome do banco',
+                controller: _nomeBancoontroller),
             SizedBox(height: 16),
-            _buildTextField('Código da Agência', 'Digite o código da agência'),
+            _buildTextField('Código da Agência', 'Digite o código da agência',
+                controller: _codigoAgenciaController),
             SizedBox(height: 16),
             _buildTextField('Confirmação de Senha', 'Confirme sua senha',
-                isPassword: true),
+                isPassword: true, controller: _confirmaSenhaController),
             SizedBox(height: 16),
             Row(
               children: [
@@ -50,9 +93,7 @@ class CadastarBanco extends StatelessWidget {
             ),
             SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () {
-                // Lógica para cadastrar o usuário
-              },
+              onPressed: _cadastrarAgencia,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 225, 139, 9),
                 shape: RoundedRectangleBorder(
@@ -63,7 +104,7 @@ class CadastarBanco extends StatelessWidget {
                   horizontal: 32.0,
                 ),
               ),
-              child: Text('CADASTAR'),
+              child: Text('CADASTRAR'),
             ),
           ],
         ),
@@ -71,8 +112,10 @@ class CadastarBanco extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(String label, String hint, {bool isPassword = false}) {
+  Widget _buildTextField(String label, String hint,
+      {bool isPassword = false, TextEditingController? controller}) {
     return TextField(
+      controller: controller,
       obscureText: isPassword,
       decoration: InputDecoration(
         filled: true,

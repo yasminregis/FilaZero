@@ -8,27 +8,22 @@ class AgenciasService {
       'https://cod3r-firebase-teste-e4e7e-default-rtdb.firebaseio.com/';
 
   static void salvarAgencia(
-      String nome_do_banco,
-      String agencia,
+      String nomeCompleto,
+      String cnpj,
       String endereco,
-      int capacidade_de_atendimento,
-      TimeOfDay? hora_abertura,
-      TimeOfDay? hora_fechamento,
-      BuildContext context) async {
-    String horario_abertura =
-        hora_abertura != null ? hora_abertura.format(context) : '';
-
-    String horario_fechamento =
-        hora_fechamento != null ? hora_fechamento.format(context) : '';
-
+      String codigoAgencia,
+      String senha,
+      String nomeBanco,
+      String codAgencia) async {
     final response = await http.post(Uri.parse("$_baseUrl/agencias.json"),
         body: json.encode({
-          "nome_do_banco": nome_do_banco,
-          "agencia": agencia,
+          "nome_completo": nomeCompleto,
+          "cnpj": cnpj,
           "endereco": endereco,
-          "capacidade_de_atendimento": capacidade_de_atendimento,
-          "hora_abertura": horario_abertura,
-          "hora_fechamento": horario_fechamento,
+          "codigoAgencia": codigoAgencia,
+          "senha": senha,
+          "nomeBanco": nomeBanco,
+          "codAgencia": codAgencia
         }));
   }
 

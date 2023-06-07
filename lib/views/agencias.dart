@@ -8,7 +8,9 @@ class Agencias extends StatelessWidget {
         title: Text('App Bar'),
         actions: [
           IconButton(
-            icon: Icon(Icons.favorite),
+            icon: Icon(
+              Icons.favorite,
+            ),
             onPressed: () {
               // Lógica para ação de favorito
             },
@@ -23,14 +25,11 @@ class Agencias extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [
-                    Colors.blue,
-                    const Color.fromARGB(255, 175, 144, 76)
-                  ],
+                  colors: [Colors.blue, Color.fromARGB(255, 229, 170, 7)],
                 ),
               ),
               child: Text(
-                'Menu',
+                'Meu perfil',
                 style: TextStyle(
                   fontSize: 24,
                   color: Colors.white,
@@ -44,15 +43,15 @@ class Agencias extends StatelessWidget {
               },
             ),
             ListTile(
-              title: Text('Notificação'),
+              title: Text('notificação'),
               onTap: () {
                 // Lógica para ação da opção 2
               },
             ),
             ListTile(
-              title: Text('Configurações'),
+              title: Text('Configuração'),
               onTap: () {
-                // Lógica para ação da opção 2
+                // Lógica para ação da opção 1
               },
             ),
           ],
