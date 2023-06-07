@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CadastarBanco extends StatelessWidget {
+class CadastrarCliente extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro de Usuário'),
+        title: Text('Cadastre-se '),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -24,15 +24,12 @@ class CadastarBanco extends StatelessWidget {
           children: [
             _buildTextField('Nome completo', 'Digite seu nome completo'),
             SizedBox(height: 16),
-            _buildTextField('CNPJ', 'Digite o CNPJ'),
+            _buildTextField('Email', 'Digite seu email'),
             SizedBox(height: 16),
-            _buildTextField('Endereço', 'Digite o endereço'),
+            _buildTextField(
+                'Data de Nascimento', 'Digite sua data de nascimento'),
             SizedBox(height: 16),
             _buildTextField('Senha', 'Digite sua senha', isPassword: true),
-            SizedBox(height: 16),
-            _buildTextField('Nome do Banco', 'Digite o nome do banco'),
-            SizedBox(height: 16),
-            _buildTextField('Código da Agência', 'Digite o código da agência'),
             SizedBox(height: 16),
             _buildTextField('Confirmação de Senha', 'Confirme sua senha',
                 isPassword: true),
@@ -53,6 +50,7 @@ class CadastarBanco extends StatelessWidget {
               onPressed: () {
                 // Lógica para cadastrar o usuário
               },
+              child: Text('CADASTRAR'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 225, 139, 9),
                 shape: RoundedRectangleBorder(
@@ -63,7 +61,6 @@ class CadastarBanco extends StatelessWidget {
                   horizontal: 32.0,
                 ),
               ),
-              child: Text('CADASTAR'),
             ),
           ],
         ),

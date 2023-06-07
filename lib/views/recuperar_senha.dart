@@ -4,93 +4,58 @@ class RecuperarSenha extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Esqueceu sua senha'),
+      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color.fromARGB(255, 255, 255, 255), Colors.blue.shade400],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 255, 255, 255),
+              Color.fromARGB(255, 21, 123, 207)
+            ],
           ),
         ),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'RECUPERAR SENHA',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 36.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 24.0),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Insira seu e-mail',
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32.0),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32.0),
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Nova senha',
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32.0),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32.0),
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Confirmar senha',
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32.0),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Lógica de autenticação aqui
-                    },
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32.0),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: 16.0,
-                        horizontal: 32.0,
-                      ),
-                    ),
-                    child: Text('ENVIAR'),
-                  ),
-                ),
-              ],
+        padding: EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Informe seu email para recuperar a senha:',
+              style:
+                  TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0)),
             ),
-          ),
+            SizedBox(height: 16),
+            TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                labelText: 'Email',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                // Lógica para recuperar a senha
+              },
+              child: Text('RECUPERAR SENHA '),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 225, 139, 9),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0),
+                ),
+                padding: EdgeInsets.symmetric(
+                  vertical: 16.0,
+                  horizontal: 32.0,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

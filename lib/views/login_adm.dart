@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginAdm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 24.0),
                 Text(
-                  'LOGIN',
+                  'LOGIN ADM',
                   style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontSize: 36.0,
@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 32.0),
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Insira seu E-mail',
+                      hintText: 'Insira seu código',
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
@@ -68,7 +68,7 @@ class LoginPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 32.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/agencias');
+                      Navigator.pushNamed(context, '/agencias_adm');
 
                       // Lógica de autenticação aqui
                     },
@@ -86,79 +86,26 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 16.0),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/cadastrar_cliente');
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/cadastrar_banco');
 
-                    // Lógica para ir para a tela de cadastro
-                  },
-                  child: Text(
-                    'Cadastre-se',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 8.0),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/recuperar_senha');
-                    // Lógica para ir para a  para a tela de recuperação de senha
-                  },
-                  child: Text(
-                    'Esqueceu sua senha?',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 24.0),
-                Text(
-                  'Ou entre com:',
-                  style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-                ),
-                SizedBox(height: 16.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        // Lógica de login com o Facebook aqui
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32.0),
-                        ),
-                        padding: EdgeInsets.symmetric(
-                          vertical: 8.0,
-                          horizontal: 16.0,
-                        ),
-                        backgroundColor: Colors.blue,
+                      // Lógica de autenticação aqui
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 225, 139, 9),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
                       ),
-                      icon: Icon(Icons.facebook),
-                      label: Text('Facebook'),
-                    ),
-                    SizedBox(width: 16.0),
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        // Lógica de login com o Google aqui
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32.0),
-                        ),
-                        padding: EdgeInsets.symmetric(
-                          vertical: 8.0,
-                          horizontal: 16.0,
-                        ),
-                        backgroundColor: Colors.red,
+                      padding: EdgeInsets.symmetric(
+                        vertical: 16.0,
+                        horizontal: 32.0,
                       ),
-                      icon: Icon(Icons.g_translate),
-                      label: Text('Google'),
                     ),
-                  ],
+                    child: Text('CADASTRE-SE'),
+                  ),
                 ),
               ],
             ),

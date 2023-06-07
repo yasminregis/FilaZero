@@ -10,7 +10,7 @@ class TelaInicial extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color.fromARGB(255, 46, 224, 234),
+              Color.fromARGB(255, 255, 255, 255),
               Color.fromARGB(255, 21, 123, 207)
             ],
           ),
@@ -30,7 +30,7 @@ class TelaInicial extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/cadastrar_banco');
+                      Navigator.pushNamed(context, '/login_adm');
                       print('Botão Admin pressionado');
                     },
                     style: ElevatedButton.styleFrom(
@@ -61,22 +61,6 @@ class TelaInicial extends StatelessWidget {
                       ),
                     ),
                     child: Text('CLIENTE'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/agencias');
-                      print('Botão Admin pressionado');
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 225, 139, 9),
-                      onPrimary: Colors.white,
-                      minimumSize: Size(120, 50),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                            30), // Define o formato arredondado
-                      ),
-                    ),
-                    child: Text('teste'),
                   ),
                 ],
               ),
