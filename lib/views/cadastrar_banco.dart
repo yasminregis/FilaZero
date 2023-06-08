@@ -37,8 +37,7 @@ class CadastarBanco extends StatelessWidget {
       }
       // Faça algo com o código da agência (por exemplo, enviar para um servidor)
 
-      AgenciasService.salvarAgencia(nomeCompleto, cnpj, endereco,
-          senha, nomeBanco, codigoAgencia);
+      AgenciasService.salvarAgencia(novoAgencia);
     }
 
     return Scaffold(
