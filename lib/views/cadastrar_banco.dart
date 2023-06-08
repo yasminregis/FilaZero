@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/Models/agencia.dart';
 import 'package:flutter_application_1/services/agencias_service.dart';
 
 class CadastarBanco extends StatelessWidget {
@@ -20,12 +21,13 @@ class CadastarBanco extends StatelessWidget {
       // Lógica para cadastrar a agência
       String nomeCompleto = _nomeBancoontroller.text;
       String cnpj = _cnpjController.text;
-      String endereco = _enderecoController.text;
-      String codigoAgencia = _agenciaController.text;
+      String endereco = _enderecoController.text;      
       String senha = _senhaController.text;
       String nomeBanco = _nomeBancoontroller.text;
-      String codAgencia = _codigoAgenciaController.text;
+      String codigoAgencia = _codigoAgenciaController.text;
       String confSenha = _confirmaSenhaController.text;
+
+      agencia novoAgencia = agencia(nomeCompleto: nomeCompleto, cnpj: cnpj, endereco: endereco, senha: senha, nomeBanco: nomeBanco, codigoAgencia: codigoAgencia)
 
       if (senha != confSenha) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -35,8 +37,8 @@ class CadastarBanco extends StatelessWidget {
       }
       // Faça algo com o código da agência (por exemplo, enviar para um servidor)
 
-      AgenciasService.salvarAgencia(nomeCompleto, cnpj, endereco, codigoAgencia,
-          senha, nomeBanco, codAgencia);
+      AgenciasService.salvarAgencia(nomeCompleto, cnpj, endereco,
+          senha, nomeBanco, codigoAgencia);
     }
 
     return Scaffold(
