@@ -39,7 +39,7 @@ class Agencias extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('Ajuda'),
+              title: Text('Sobre nós'),
               onTap: () {
                 // Lógica para ação da opção 1
               },

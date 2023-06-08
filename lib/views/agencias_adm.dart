@@ -15,9 +15,9 @@ class AgenciasAdm extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.help),
+            icon: Icon(Icons.person),
             onPressed: () {
-              Navigator.pushNamed(context, '/ajuda');
+              Navigator.pushNamed(context, '/quem_somos_nos');
 
               // Lógica para ação de ajuda
             },
