@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/recuperar_senha': (context) => RecuperarSenha(),
         '/inicial': (context) => TelaInicial(),
-        '/cadastrar_banco': (context) => CadastarBanco(),
+        '/cadastrar_banco': (context) => CadastrarBanco(),
         '/agencias': (context) => Agencias(),
         "/login_adm": (context) => LoginAdm(),
         "/agencias_adm": (context) => AgenciasAdm(),

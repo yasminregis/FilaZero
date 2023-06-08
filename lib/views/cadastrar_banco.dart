@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/Models/agencia.dart';
 import 'package:flutter_application_1/services/agencias_service.dart';
 
-class CadastarBanco extends StatelessWidget {
+class CadastrarBanco extends StatelessWidget {
   final TextEditingController _agenciaController = TextEditingController();
   final TextEditingController _cnpjController = TextEditingController();
   final TextEditingController _enderecoController = TextEditingController();
@@ -19,7 +19,7 @@ class CadastarBanco extends StatelessWidget {
   Widget build(BuildContext context) {
     void _cadastrarAgencia() {
       // Lógica para cadastrar a agência
-      String nomeCompleto = _nomeBancoontroller.text;
+      String nomeCompleto = _nomeCompletoontroller.text;
       String cnpj = _cnpjController.text;
       String endereco = _enderecoController.text;
       String senha = _senhaController.text;
@@ -67,7 +67,7 @@ class CadastarBanco extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             _buildTextField('Nome completo', 'Digite seu nome completo',
-                controller: _nomeBancoontroller),
+                controller: _nomeCompletoontroller),
             SizedBox(height: 16),
             _buildTextField('CNPJ', 'Digite o CNPJ',
                 controller: _cnpjController),

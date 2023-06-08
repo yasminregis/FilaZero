@@ -83,9 +83,24 @@ class Agencias extends StatelessWidget {
                 itemCount: agencias.length,
                 itemBuilder: (context, index) {
                   agencia agenciaAtual = agencias[index];
-                  return ListTile(
-                    title: Text(agenciaAtual.nomeCompleto as String),
-                    subtitle: Text(agenciaAtual.endereco as String),
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Color.fromARGB(255, 225, 139, 9),
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(120.0)),
+                    ),
+                    child: ListTile(
+                      title: Text(
+                        agenciaAtual.nomeBanco as String,
+                        style: TextStyle(
+                          fontSize: 20.0, // Defina o tamanho da fonte desejado
+                        ),
+                      ),
+                      subtitle: Text(agenciaAtual.endereco as String),
+                    ),
                   );
                 },
               );
