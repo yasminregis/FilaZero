@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Models/agencia.dart';
+import 'package:flutter_application_1/services/agencias_service.dart';
 
 class Agencias extends StatelessWidget {
   @override
@@ -68,18 +70,27 @@ class Agencias extends StatelessWidget {
             ],
           ),
         ),
-        child: ListView(
-          children: [
-            ListTile(
-              title: Text('Conteúdo 1'),
-            ),
-            ListTile(
-              title: Text('Conteúdo 2'),
-            ),
-            ListTile(
-              title: Text('Conteúdo 3'),
-            ),
-          ],
+        child: FutureBuilder<List<agencia>>(
+          future: AgenciasService.buscarAgencias(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Erro ao carregar as agências'));
+            } else {
+              List<agencia> agencias = snapshot.data!;
+              return ListView.builder(
+                itemCount: agencias.length,
+                itemBuilder: (context, index) {
+                  agencia agenciaAtual = agencias[index];
+                  return ListTile(
+                    title: Text(agenciaAtual.nomeCompleto as String),
+                    subtitle: Text(agenciaAtual.endereco as String),
+                  );
+                },
+              );
+            }
+          },
         ),
       ),
     );
