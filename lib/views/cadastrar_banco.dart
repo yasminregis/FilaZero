@@ -21,13 +21,19 @@ class CadastarBanco extends StatelessWidget {
       // Lógica para cadastrar a agência
       String nomeCompleto = _nomeBancoontroller.text;
       String cnpj = _cnpjController.text;
-      String endereco = _enderecoController.text;      
+      String endereco = _enderecoController.text;
       String senha = _senhaController.text;
       String nomeBanco = _nomeBancoontroller.text;
       String codigoAgencia = _codigoAgenciaController.text;
       String confSenha = _confirmaSenhaController.text;
 
-      agencia novoAgencia = agencia(nomeCompleto: nomeCompleto, cnpj: cnpj, endereco: endereco, senha: senha, nomeBanco: nomeBanco, codigoAgencia: codigoAgencia)
+      agencia novoAgencia = agencia(
+          nomeCompleto: nomeCompleto,
+          cnpj: cnpj,
+          endereco: endereco,
+          senha: senha,
+          nomeBanco: nomeBanco,
+          codigoAgencia: codigoAgencia);
 
       if (senha != confSenha) {
         ScaffoldMessenger.of(context).showSnackBar(

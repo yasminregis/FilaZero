@@ -20,7 +20,28 @@ class AgenciasService {
         }));
   }
 
-  static void buscarAgecias() async {
+  static Future<List<agencia>> buscarAgencias() async {
     final response = await http.get(Uri.parse("$_baseUrl/agencias.json"));
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = json.decode(response.body);
+      List<agencia> agencias = [];
+
+      data.forEach((key, value) {
+        agencia agenciaAtual = agencia(
+          nomeCompleto: value['nome_completo'],
+          cnpj: value['cnpj'],
+          endereco: value['endereco'],
+          senha: value['senha'],
+          nomeBanco: value['nomeBanco'],
+          codigoAgencia: value['codigoAgencia'],
+        );
+        agencias.add(agenciaAtual);
+      });
+
+      return agencias;
+    } else {
+      throw Exception('Falha ao buscar as agências');
+    }
   }
 }
