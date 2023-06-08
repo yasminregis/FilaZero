@@ -84,13 +84,19 @@ class Agencias extends StatelessWidget {
                 itemBuilder: (context, index) {
                   agencia agenciaAtual = agencias[index];
                   return Container(
+                    margin: EdgeInsets.only(
+                      top: 5.0,
+                      bottom: 4.0,
+                      left: 6.0,
+                      right: 6.0,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: Color.fromARGB(255, 225, 139, 9),
-                        width: 2.0,
+                        width: 1.0,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(120.0)),
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
                     ),
                     child: ListTile(
                       title: Text(
