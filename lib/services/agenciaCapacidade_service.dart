@@ -11,7 +11,7 @@ class AgenciaCapacidadeService {
   static void salvarAgenciaCapacidade(agenciaCapacidade agencia) async {
     final existe = await http.get(
         Uri.parse("$_baseUrl/agenciaCapacidade/${agencia.agenciaId}.json"));
-    if (existe != null) {
+    if (existe == null) {
       final response =
           await http.post(Uri.parse("$_baseUrl/agenciaCapacidade.json"),
               body: json.encode({
@@ -20,6 +20,20 @@ class AgenciaCapacidadeService {
                 "horarioAbertura": agencia.horarioAbertura,
                 "horaraioFechamento": agencia.horaraioFechamento,
               }));
+    }
+  }
+
+  static Future<agenciaCapacidade> getAgenciaCapacidade(
+      String agenciaId) async {
+    final response = await http
+        .get(Uri.parse("$_baseUrl/agenciaCapacidade/${agenciaId}.json"));
+
+    if (response.statusCode == 200) {
+      // final data = json.decode(response.body);
+      agenciaCapacidade agencia = agenciaCapacidade.fromJson(response.body);
+      return agencia;
+    } else {
+      throw Exception('Falha ao buscar as agências');
     }
   }
 }

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Models/agencia.dart';
+import 'package:flutter_application_1/Models/agenciaCapacidade.dart';
+import 'package:flutter_application_1/services/agenciaCapacidade_service.dart';
 
 class EditarInformacoes extends StatelessWidget {
+  final TextEditingController _fichaDisponibilizadas = TextEditingController();
+  final TextEditingController _horarioAbertura = TextEditingController();
+  final TextEditingController _horarioFechamento = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final arguments =
@@ -10,6 +15,28 @@ class EditarInformacoes extends StatelessWidget {
     final agencia agenciaAtual = arguments?['agencia'] ?? '';
     final String agenciaNome = agenciaAtual.nomeBanco as String;
     final String agenciaId = agenciaAtual.key as String;
+    // final Future<agenciaCapacidade> agenciaCapacidadeAtual =
+    //     AgenciaCapacidadeService.getAgenciaCapacidade(agenciaId);
+
+    void _cadastrarAgencia() {
+      // Lógica para cadastrar a agência
+      //String agenciaId = agenciaId;
+      int capacidade = _fichaDisponibilizadas as int;
+      String horarioAbertura = _horarioAbertura.text;
+      String horarioFechamento = _horarioFechamento.text;
+
+      agenciaCapacidade agenciaCad = agenciaCapacidade(
+        agenciaId: agenciaId,
+        quantidadeFichas: capacidade,
+        horarioAbertura: horarioAbertura,
+        horaraioFechamento: horarioFechamento,
+      );
+
+      // Faça algo com o código da agência (por exemplo, enviar para um servidor)
+
+      AgenciaCapacidadeService.salvarAgenciaCapacidade(agenciaCad);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Editar Informações de Atendimento'),
@@ -38,13 +65,16 @@ class EditarInformacoes extends StatelessWidget {
             ),
             SizedBox(height: 16),
             _buildTextField(
-                'Fichas disponibilizadas', 'Digite a quantidade de fichas'),
+                'Fichas disponibilizadas', 'Digite a quantidade de fichas',
+                controller: _fichaDisponibilizadas),
             SizedBox(height: 16),
             _buildTextField(
-                'Horário de abertura', 'Digite o horário de abertura'),
+                'Horário de abertura', 'Digite o horário de abertura',
+                controller: _horarioAbertura),
             SizedBox(height: 16),
             _buildTextField(
-                'Horário de fechamento', 'Digite o horário de fechamento'),
+                'Horário de fechamento', 'Digite o horário de fechamento',
+                controller: _horarioFechamento),
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
@@ -68,8 +98,10 @@ class EditarInformacoes extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(String label, String hint, {bool isPassword = false}) {
+  Widget _buildTextField(String label, String hint,
+      {bool isPassword = false, TextEditingController? controller}) {
     return TextField(
+      controller: controller,
       obscureText: isPassword,
       decoration: InputDecoration(
         filled: true,
