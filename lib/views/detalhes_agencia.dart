@@ -22,8 +22,6 @@ class DetalhesAgencia extends StatelessWidget {
     // AgenciaCapacidadeService.getAgenciaCapacidade(agenciaId);
 
     void _cadastrarAgencia() {
-      // Lógica para cadastrar a agência
-      //String agenciaId = agenciaId;
       int capacidade = int.tryParse(_fichaDisponibilizadas.text) ?? 0;
       print(capacidade);
       String horarioAbertura = _horarioAbertura.text;
@@ -73,6 +71,36 @@ class DetalhesAgencia extends StatelessWidget {
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            FutureBuilder<agenciaCapacidade>(
+              future: AgenciaCapacidadeService.getAgenciaCapacidade(agenciaId),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return CircularProgressIndicator(); // Exibir um indicador de progresso enquanto os dados estão sendo carregados
+                } else if (snapshot.hasError) {
+                  return Text(
+                      'Erro ao carregar os dados'); // Exibir uma mensagem de erro caso ocorra algum problema
+                } else {
+                  final agenciaCapacidadeAtual = snapshot.data;
+                  // Exibir os dados carregados
+                  return Column(
+                    children: [
+                      Text(
+                          'Quantidade de fichas: ${agenciaCapacidadeAtual?.quantidadeFichas ?? ''}'),
+                      Text(
+                          'Horário de abertura: ${agenciaCapacidadeAtual?.horarioAbertura ?? ''}'),
+                      Text(
+                          'Horário de fechamento: ${agenciaCapacidadeAtual?.horaraioFechamento ?? ''}'),
+                      Text(
+                          'Ocupação: ${agenciaCapacidadeAtual?.lotacao ?? ''}'),
+                      SizedBox(height: 20),
+                    ],
+                  );
+                }
+              },
             ),
           ],
         ),

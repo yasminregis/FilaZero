@@ -37,12 +37,12 @@ class AgenciaCapacidadeService {
     }
   }
 
-  static Future<agenciaCapacidade?> getAgenciaCapacidade(
+  static Future<agenciaCapacidade> getAgenciaCapacidade(
       String agenciaId) async {
     final response =
         await http.get(Uri.parse("$_baseUrl/agenciaCapacidade.json"));
 
-    agenciaCapacidade? agenciaCapacidadeAtual;
+    agenciaCapacidade agenciaCapacidadeAtual = agenciaCapacidade();
 
     final Map<String, dynamic> data = json.decode(response.body);
 

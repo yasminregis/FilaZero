@@ -39,6 +39,6 @@ class agenciaCapacidade {
         "horarioAbertura": horarioAbertura == null ? null : horarioAbertura,
         "horaraioFechamento":
             horaraioFechamento == null ? null : horaraioFechamento,
-        "lotacao": lotacao == null ? null : lotacao,
+        "lotacao": lotacao == null ? null : lotacao
       };
 }
