@@ -23,7 +23,7 @@ class AgenciasAdm extends StatelessWidget {
             },
           ),
         ],
-        title: Text('App Bar'),
+        title: Text('Agências'),
       ),
       body: Container(
         decoration: BoxDecoration(

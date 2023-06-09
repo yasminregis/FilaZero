@@ -49,7 +49,7 @@ class CadastrarBanco extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Cadastro de Usuário'),
+        title: Text('Cadastre seu Banco'),
       ),
       body: Container(
         decoration: BoxDecoration(

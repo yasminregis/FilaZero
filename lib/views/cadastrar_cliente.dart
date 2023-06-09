@@ -5,7 +5,7 @@ class CadastrarCliente extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastre-se '),
+        title: Text('Cadastro de usuário'),
       ),
       body: Container(
         decoration: BoxDecoration(

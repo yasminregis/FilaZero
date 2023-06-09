@@ -7,10 +7,14 @@ class Agencias extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            // Lógica para voltar
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
           },
         ),
         actions: [
@@ -23,7 +27,53 @@ class Agencias extends StatelessWidget {
             },
           ),
         ],
-        title: Text('App Bar'),
+        title: Text('Agências'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.blue, Color.fromARGB(255, 229, 170, 7)],
+                ),
+              ),
+              child: Text(
+                'Meu perfil',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Configurações'),
+              onTap: () {
+                // Lógica para ação da opção 1
+              },
+            ),
+            ListTile(
+              title: Text('Notificações'),
+              onTap: () {
+                // Lógica para ação da opção 2
+              },
+            ),
+            ListTile(
+              title: Text('Sobre nós'),
+              onTap: () {
+                // Lógica para ação da opção 3
+              },
+            ),
+            ListTile(
+              title: Text('Sair'),
+              onTap: () {
+                // Lógica para ação da opção 3
+              },
+            ),
+          ],
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -104,7 +154,6 @@ class Agencias extends StatelessWidget {
                                         '/detalhes_agencias',
                                         arguments: {
                                           'agencia': agenciaAtual,
-
                                           // passando a agência atual como argumento
                                         },
                                       );

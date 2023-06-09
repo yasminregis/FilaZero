@@ -55,7 +55,7 @@ class _EditarInformacoesState extends State<EditarInformacoes> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Editar Informações de Atendimento'),
+        title: Text('Editar Informações'),
       ),
       body: Container(
         decoration: BoxDecoration(
