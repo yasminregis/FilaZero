@@ -12,17 +12,20 @@ class AgenciaCapacidadeService {
     final existeResposta =
         await http.get(Uri.parse("$_baseUrl/agenciaCapacidade.json"));
 
-    final Map<String, dynamic> data = json.decode(existeResposta.body);
+    final Map<String, dynamic>? data = json.decode(existeResposta.body);
     bool existe = false;
 
-    data.forEach((key, value) async {
-      if (value['agenciaId'] == agencia.agenciaId) {
-        final updateItem = await http.patch(
-            Uri.parse("$_baseUrl/agenciaCapacidade/$key.json"),
-            body: agencia.toJson());
-        existe = true;
-      }
-    });
+    if (data != null) {
+      data.forEach((key, value) async {
+        if (value['agenciaId'] == agencia.agenciaId) {
+          print("entrou");
+          final updateItem = await http.patch(
+              Uri.parse("$_baseUrl/agenciaCapacidade/$key.json"),
+              body: agencia.toJson());
+          existe = true;
+        }
+      });
+    }
 
     if (existe == false) {
       final response =
@@ -52,7 +55,7 @@ class AgenciaCapacidadeService {
           agenciaId: value['agenciaId'],
           quantidadeFichas: value['quantidadeFichas'],
           horarioAbertura: value['horarioAbertura'],
-          horaraioFechamento: value['horarioFechamento'],
+          horaraioFechamento: value['horaraioFechamento'],
           lotacao: value['lotacao'],
         );
       }
