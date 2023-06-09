@@ -9,6 +9,7 @@ import 'package:flutter_application_1/views/inicial.dart';
 import 'package:flutter_application_1/views/cadastrar_banco.dart';
 import 'package:flutter_application_1/views/login_adm.dart';
 import 'package:flutter_application_1/views/cadastrar_cliente.dart';
+import 'package:flutter_application_1/views/detalhes_agencia.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         "/quem_somos_nos": (context) => QuemSomosNos(),
         "/cadastrar_cliente": (context) => CadastrarCliente(),
         "/editar_informacoes_banco": (context) => EditarInformacoes(),
+        '/detalhes_agencias': (context) => DetalhesAgencia(),
       },
     );
   }
