@@ -7,6 +7,7 @@ class agencia {
   String? senha;
   String? nomeBanco;
   String? codigoAgencia;
+  String? key;
 
   agencia({
     this.nomeCompleto,
@@ -15,6 +16,7 @@ class agencia {
     this.senha,
     this.nomeBanco,
     this.codigoAgencia,
+    this.key,
   });
 
   factory agencia.fromJson(String str) => agencia.fromMap(json.decode(str));

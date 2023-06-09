@@ -35,6 +35,7 @@ class AgenciasService {
           senha: value['senha'],
           nomeBanco: value['nomeBanco'],
           codigoAgencia: value['codigoAgencia'],
+          key: key,
         );
         agencias.add(agenciaAtual);
       });

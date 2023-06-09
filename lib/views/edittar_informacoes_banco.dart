@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Models/agencia.dart';
 
 class EditarInformacoes extends StatelessWidget {
   @override
@@ -6,8 +7,9 @@ class EditarInformacoes extends StatelessWidget {
     final arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
 
-    final String agenciaNome = arguments?['agencia']?.nomeBanco as String ?? '';
-
+    final agencia agenciaAtual = arguments?['agencia'] ?? '';
+    final String agenciaNome = agenciaAtual.nomeBanco as String;
+    final String agenciaId = agenciaAtual.key as String;
     return Scaffold(
       appBar: AppBar(
         title: Text('Editar Informações de Atendimento'),
@@ -28,7 +30,7 @@ class EditarInformacoes extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Agência: $agenciaNome',
+              'Agência: $agenciaNome ',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
