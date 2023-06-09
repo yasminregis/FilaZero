@@ -55,7 +55,7 @@ class _EditarInformacoesState extends State<EditarInformacoes> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Editar Informações'),
+        title: Text('Editar Informações em tempo real'),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -94,9 +94,12 @@ class _EditarInformacoesState extends State<EditarInformacoes> {
             SizedBox(height: 16),
             Center(
                 child: Text(
-              'Informe a lotação atual',
+              'Informe a quantidade de pessoas na fila:',
               style: TextStyle(fontSize: 18),
             )),
+            SizedBox(
+              height: 30,
+            ),
             Row(
               children: [
                 Expanded(
@@ -142,6 +145,9 @@ class _EditarInformacoesState extends State<EditarInformacoes> {
                   ),
                 )
               ],
+            ),
+            SizedBox(
+              height: 30,
             ),
             ElevatedButton(
               onPressed: _cadastrarAgencia,

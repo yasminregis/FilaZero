@@ -66,7 +66,7 @@ class DetalhesAgencia extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 12,
+              height: 60,
             ),
             FutureBuilder<agenciaCapacidade>(
               future: AgenciaCapacidadeService.getAgenciaCapacidade(agenciaId),
@@ -79,25 +79,32 @@ class DetalhesAgencia extends StatelessWidget {
                 } else {
                   final agenciaCapacidadeAtual = snapshot.data;
                   // Exibir os dados carregados
+
                   return Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 235, 170, 16),
                           width: 1.0,
                         )),
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 27,
+                        ),
                         Text(
                           'Quantidade de fichas: ${agenciaCapacidadeAtual?.quantidadeFichas ?? ''}',
                           style: TextStyle(fontSize: 25),
                         ),
                         Text(
-                            'Horário de abertura: ${agenciaCapacidadeAtual?.horarioAbertura ?? ''}'),
+                            'Horário de abertura: ${agenciaCapacidadeAtual?.horarioAbertura ?? ''}',
+                            style: TextStyle(fontSize: 25)),
                         Text(
-                            'Horário de fechamento: ${agenciaCapacidadeAtual?.horaraioFechamento ?? ''}'),
+                            'Horário de fechamento: ${agenciaCapacidadeAtual?.horaraioFechamento ?? ''}',
+                            style: TextStyle(fontSize: 25)),
                         Text(
-                            'Ocupação: ${agenciaCapacidadeAtual?.lotacao ?? ''}'),
+                            'Ocupação: ${agenciaCapacidadeAtual?.lotacao ?? ''}',
+                            style: TextStyle(fontSize: 25)),
                         SizedBox(height: 20),
                       ],
                     ),
