@@ -37,17 +37,27 @@ class AgenciaCapacidadeService {
     }
   }
 
-  static Future<agenciaCapacidade> getAgenciaCapacidade(
+  static Future<agenciaCapacidade?> getAgenciaCapacidade(
       String agenciaId) async {
     final response =
         await http.get(Uri.parse("$_baseUrl/agenciaCapacidade.json"));
 
-    if (response.statusCode == 200) {
-      // final data = json.decode(response.body);
-      agenciaCapacidade agencia = agenciaCapacidade.fromJson(response.body);
-      return agencia;
-    } else {
-      throw Exception('Falha ao buscar as agências');
-    }
+    agenciaCapacidade? agenciaCapacidadeAtual;
+
+    final Map<String, dynamic> data = json.decode(response.body);
+
+    data.forEach((key, value) {
+      if (value['agenciaId'] == agenciaId) {
+        agenciaCapacidadeAtual = agenciaCapacidade(
+          agenciaId: value['agenciaId'],
+          quantidadeFichas: value['quantidadeFichas'],
+          horarioAbertura: value['horarioAbertura'],
+          horaraioFechamento: value['horarioFechamento'],
+          lotacao: value['lotacao'],
+        );
+      }
+    });
+
+    return agenciaCapacidadeAtual;
   }
 }

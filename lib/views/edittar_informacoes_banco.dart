@@ -39,7 +39,6 @@ class _EditarInformacoesState extends State<EditarInformacoes> {
 
     void _cadastrarAgencia() {
       int capacidade = int.tryParse(_fichaDisponibilizadas.text) ?? 0;
-      print(capacidade);
       String horarioAbertura = _horarioAbertura.text;
       String horarioFechamento = _horarioFechamento.text;
 
