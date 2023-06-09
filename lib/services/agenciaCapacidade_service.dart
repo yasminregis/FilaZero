@@ -9,27 +9,38 @@ class AgenciaCapacidadeService {
       'https://cod3r-firebase-teste-e4e7e-default-rtdb.firebaseio.com/';
 
   static void salvarAgenciaCapacidade(agenciaCapacidade agencia) async {
-    final existeResposta = await http.get(
-        Uri.parse("$_baseUrl/agenciaCapacidade/${agencia.agenciaId}.json"));
-    final existe = existeResposta.body;
-    if (existe == null) {
-      print("existe no banco, atualizar");
+    final existeResposta =
+        await http.get(Uri.parse("$_baseUrl/agenciaCapacidade.json"));
+
+    final Map<String, dynamic> data = json.decode(existeResposta.body);
+    bool existe = false;
+
+    data.forEach((key, value) async {
+      if (value['agenciaId'] == agencia.agenciaId) {
+        final updateItem = await http.patch(
+            Uri.parse("$_baseUrl/agenciaCapacidade/$key.json"),
+            body: agencia.toJson());
+        existe = true;
+      }
+    });
+
+    if (existe == false) {
+      final response =
+          await http.post(Uri.parse("$_baseUrl/agenciaCapacidade.json"),
+              body: json.encode({
+                "agenciaId": agencia.agenciaId,
+                "quantidadeFichas": agencia.quantidadeFichas,
+                "horarioAbertura": agencia.horarioAbertura,
+                "horaraioFechamento": agencia.horaraioFechamento,
+                "lotacao": agencia.lotacao,
+              }));
     }
-    final response =
-        await http.post(Uri.parse("$_baseUrl/agenciaCapacidade.json"),
-            body: json.encode({
-              "agenciaId": agencia.agenciaId,
-              "quantidadeFichas": agencia.quantidadeFichas,
-              "horarioAbertura": agencia.horarioAbertura,
-              "horaraioFechamento": agencia.horaraioFechamento,
-              "lotacao": agencia.lotacao,
-            }));
   }
 
   static Future<agenciaCapacidade> getAgenciaCapacidade(
       String agenciaId) async {
-    final response = await http
-        .get(Uri.parse("$_baseUrl/agenciaCapacidade/${agenciaId}.json"));
+    final response =
+        await http.get(Uri.parse("$_baseUrl/agenciaCapacidade.json"));
 
     if (response.statusCode == 200) {
       // final data = json.decode(response.body);
