@@ -21,7 +21,8 @@ class EditarInformacoes extends StatelessWidget {
     void _cadastrarAgencia() {
       // Lógica para cadastrar a agência
       //String agenciaId = agenciaId;
-      int capacidade = _fichaDisponibilizadas as int;
+      int capacidade = int.tryParse(_fichaDisponibilizadas.text) ?? 0;
+      print(capacidade);
       String horarioAbertura = _horarioAbertura.text;
       String horarioFechamento = _horarioFechamento.text;
 
@@ -77,9 +78,7 @@ class EditarInformacoes extends StatelessWidget {
                 controller: _horarioFechamento),
             SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () {
-                // Lógica para cadastrar o usuário
-              },
+              onPressed: _cadastrarAgencia,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 225, 139, 9),
                 shape: RoundedRectangleBorder(
