@@ -42,26 +42,6 @@ class AgenciasAdm extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/editar_informacoes_banco');
-
-                      // Lógica para editar informações
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 225, 139, 9),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32.0),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: 16.0,
-                        horizontal: 32.0,
-                      ),
-                    ),
-                    child: Text('Editar Informações'),
-                  ),
-                ],
               ),
             ),
             Expanded(
@@ -107,12 +87,30 @@ class AgenciasAdm extends StatelessWidget {
                                   BorderRadius.all(Radius.circular(20.0)),
                             ),
                             child: ListTile(
-                              title: Text(
-                                agenciaAtual.nomeBanco as String,
-                                style: TextStyle(
-                                  fontSize:
-                                      20.0, // Defina o tamanho da fonte desejado
-                                ),
+                              title: Row(
+                                children: [
+                                  Text(
+                                    agenciaAtual.nomeBanco as String,
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  IconButton(
+                                    icon: Icon(Icons.add),
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        '/editar_informacoes_banco',
+                                        arguments: {
+                                          'agencia':
+                                              agenciaAtual, // passando a agência atual como argumento
+                                        },
+                                      );
+                                      // Lógica para adicionar algo
+                                    },
+                                  ),
+                                ],
                               ),
                               subtitle: Text(agenciaAtual.endereco as String),
                             ),

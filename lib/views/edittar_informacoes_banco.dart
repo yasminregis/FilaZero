@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 class EditarInformacoes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final arguments =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+
+    final String agenciaNome = arguments?['agencia']?.nomeBanco as String ?? '';
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Editar Informações de atedimento'),
+        title: Text('Editar Informações de Atendimento'),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -22,6 +27,14 @@ class EditarInformacoes extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Text(
+              'Agência: $agenciaNome',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 16),
             _buildTextField(
                 'Fichas disponibilizadas', 'Digite a quantidade de fichas'),
             SizedBox(height: 16),
@@ -29,7 +42,7 @@ class EditarInformacoes extends StatelessWidget {
                 'Horário de abertura', 'Digite o horário de abertura'),
             SizedBox(height: 16),
             _buildTextField(
-                'Horário de fechamento', 'Digite o horáario de fechamento'),
+                'Horário de fechamento', 'Digite o horário de fechamento'),
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {

@@ -31,12 +31,22 @@ class QuemSomosNos extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(height: 16.0),
+
             Text(
-              'Seja bem-vindo(a)!',
+              'Solucionando o seu problema através da tecnologia, trazendo estimativas e informações claras sobre a sua agência. nossa missão é ajudar você!',
               style: TextStyle(
                 fontSize: 20.0,
                 color: Color.fromARGB(255, 0, 0, 0),
-                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 20.0),
+
+            Text(
+              'Para mais informações ligue: ',
+              style: TextStyle(
+                fontSize: 16.0,
+                color: Color.fromARGB(255, 0, 0, 0),
               ),
             ),
             SizedBox(height: 16.0),
