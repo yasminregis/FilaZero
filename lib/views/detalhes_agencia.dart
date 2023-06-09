@@ -65,13 +65,6 @@ class DetalhesAgencia extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
-              'Horário abertura: $agenciaAtual. ',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
             SizedBox(
               height: 12,
             ),
@@ -86,18 +79,28 @@ class DetalhesAgencia extends StatelessWidget {
                 } else {
                   final agenciaCapacidadeAtual = snapshot.data;
                   // Exibir os dados carregados
-                  return Column(
-                    children: [
-                      Text(
-                          'Quantidade de fichas: ${agenciaCapacidadeAtual?.quantidadeFichas ?? ''}'),
-                      Text(
-                          'Horário de abertura: ${agenciaCapacidadeAtual?.horarioAbertura ?? ''}'),
-                      Text(
-                          'Horário de fechamento: ${agenciaCapacidadeAtual?.horaraioFechamento ?? ''}'),
-                      Text(
-                          'Ocupação: ${agenciaCapacidadeAtual?.lotacao ?? ''}'),
-                      SizedBox(height: 20),
-                    ],
+                  return Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 1.0,
+                        )),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Quantidade de fichas: ${agenciaCapacidadeAtual?.quantidadeFichas ?? ''}',
+                          style: TextStyle(fontSize: 25),
+                        ),
+                        Text(
+                            'Horário de abertura: ${agenciaCapacidadeAtual?.horarioAbertura ?? ''}'),
+                        Text(
+                            'Horário de fechamento: ${agenciaCapacidadeAtual?.horaraioFechamento ?? ''}'),
+                        Text(
+                            'Ocupação: ${agenciaCapacidadeAtual?.lotacao ?? ''}'),
+                        SizedBox(height: 20),
+                      ],
+                    ),
                   );
                 }
               },
