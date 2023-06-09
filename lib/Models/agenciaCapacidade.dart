@@ -5,12 +5,14 @@ class agenciaCapacidade {
   int? quantidadeFichas;
   String? horarioAbertura;
   String? horaraioFechamento;
+  int? lotacao;
 
   agenciaCapacidade({
     this.agenciaId,
     this.quantidadeFichas,
     this.horarioAbertura,
     this.horaraioFechamento,
+    this.lotacao,
   });
 
   factory agenciaCapacidade.fromJson(String str) =>
@@ -28,6 +30,7 @@ class agenciaCapacidade {
         horaraioFechamento: json["horaraioFechamento"] == null
             ? null
             : json["horaraioFechamento"],
+        lotacao: json["lotacao"] == null ? null : json["lotacao"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -36,5 +39,6 @@ class agenciaCapacidade {
         "horarioAbertura": horarioAbertura == null ? null : horarioAbertura,
         "horaraioFechamento":
             horaraioFechamento == null ? null : horaraioFechamento,
+        "lotacao": lotacao == null ? null : lotacao,
       };
 }

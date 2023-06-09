@@ -3,10 +3,17 @@ import 'package:flutter_application_1/Models/agencia.dart';
 import 'package:flutter_application_1/Models/agenciaCapacidade.dart';
 import 'package:flutter_application_1/services/agenciaCapacidade_service.dart';
 
-class EditarInformacoes extends StatelessWidget {
+class EditarInformacoes extends StatefulWidget {
+  @override
+  _EditarInformacoesState createState() => _EditarInformacoesState();
+}
+
+class _EditarInformacoesState extends State<EditarInformacoes> {
   final TextEditingController _fichaDisponibilizadas = TextEditingController();
   final TextEditingController _horarioAbertura = TextEditingController();
   final TextEditingController _horarioFechamento = TextEditingController();
+  int lotacao = 0;
+
   @override
   Widget build(BuildContext context) {
     final arguments =
@@ -15,12 +22,22 @@ class EditarInformacoes extends StatelessWidget {
     final agencia agenciaAtual = arguments?['agencia'] ?? '';
     final String agenciaNome = agenciaAtual.nomeBanco as String;
     final String agenciaId = agenciaAtual.key as String;
-    // final Future<agenciaCapacidade> agenciaCapacidadeAtual =
-    //     AgenciaCapacidadeService.getAgenciaCapacidade(agenciaId);
+
+    void _incrementLotacao() {
+      setState(() {
+        lotacao++;
+      });
+    }
+
+    void _decrementLotacao() {
+      if (lotacao > 0) {
+        setState(() {
+          lotacao--;
+        });
+      }
+    }
 
     void _cadastrarAgencia() {
-      // Lógica para cadastrar a agência
-      //String agenciaId = agenciaId;
       int capacidade = int.tryParse(_fichaDisponibilizadas.text) ?? 0;
       print(capacidade);
       String horarioAbertura = _horarioAbertura.text;
@@ -31,9 +48,8 @@ class EditarInformacoes extends StatelessWidget {
         quantidadeFichas: capacidade,
         horarioAbertura: horarioAbertura,
         horaraioFechamento: horarioFechamento,
+        lotacao: lotacao,
       );
-
-      // Faça algo com o código da agência (por exemplo, enviar para um servidor)
 
       AgenciaCapacidadeService.salvarAgenciaCapacidade(agenciaCad);
     }
@@ -77,6 +93,46 @@ class EditarInformacoes extends StatelessWidget {
                 'Horário de fechamento', 'Digite o horário de fechamento',
                 controller: _horarioFechamento),
             SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: _decrementLotacao,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 1.0,
+                        horizontal: 4.0,
+                      ),
+                    ),
+                    child: Text(' - '),
+                  ),
+                ),
+                Text(
+                  '$lotacao',
+                  style: TextStyle(fontSize: 18),
+                ),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: _incrementLotacao,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 1.0,
+                        horizontal: 4.0,
+                      ),
+                    ),
+                    child: Text(' + '),
+                  ),
+                )
+              ],
+            ),
             ElevatedButton(
               onPressed: _cadastrarAgencia,
               style: ElevatedButton.styleFrom(

@@ -12,7 +12,9 @@ class AgenciaCapacidadeService {
     final existeResposta = await http.get(
         Uri.parse("$_baseUrl/agenciaCapacidade/${agencia.agenciaId}.json"));
     final existe = existeResposta.body;
-
+    if (existe == null) {
+      print("existe no banco, atualizar");
+    }
     final response =
         await http.post(Uri.parse("$_baseUrl/agenciaCapacidade.json"),
             body: json.encode({
@@ -20,6 +22,7 @@ class AgenciaCapacidadeService {
               "quantidadeFichas": agencia.quantidadeFichas,
               "horarioAbertura": agencia.horarioAbertura,
               "horaraioFechamento": agencia.horaraioFechamento,
+              "lotacao": agencia.lotacao,
             }));
   }
 
