@@ -92,6 +92,11 @@ class _EditarInformacoesState extends State<EditarInformacoes> {
                 'Horário de fechamento', 'Digite o horário de fechamento',
                 controller: _horarioFechamento),
             SizedBox(height: 16),
+            Center(
+                child: Text(
+              'Informe a lotação atual',
+              style: TextStyle(fontSize: 18),
+            )),
             Row(
               children: [
                 Expanded(
@@ -110,9 +115,15 @@ class _EditarInformacoesState extends State<EditarInformacoes> {
                     child: Text(' - '),
                   ),
                 ),
+                SizedBox(
+                  width: 25,
+                ),
                 Text(
                   '$lotacao',
                   style: TextStyle(fontSize: 18),
+                ),
+                SizedBox(
+                  width: 25,
                 ),
                 Expanded(
                   child: ElevatedButton(
