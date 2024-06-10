@@ -37,7 +37,10 @@ class Agencias extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Colors.blue, Color.fromARGB(255, 229, 170, 7)],
+                  colors: [
+                    Color.fromARGB(255, 191, 12, 223),
+                    Color.fromARGB(255, 156, 39, 176)
+                  ],
                 ),
               ),
               child: Text(
@@ -82,7 +85,7 @@ class Agencias extends StatelessWidget {
             end: Alignment.bottomRight,
             colors: [
               Color.fromARGB(255, 255, 255, 255),
-              Color.fromARGB(255, 21, 123, 207)
+              Color.fromARGB(255, 156, 39, 176)
             ],
           ),
         ),
@@ -102,7 +105,7 @@ class Agencias extends StatelessWidget {
                     end: Alignment.bottomRight,
                     colors: [
                       Color.fromARGB(255, 255, 255, 255),
-                      Color.fromARGB(255, 21, 123, 207)
+                      Color.fromARGB(255, 156, 39, 176)
                     ],
                   ),
                 ),

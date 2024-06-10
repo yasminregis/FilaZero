@@ -5,18 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_application_1",
+            "name": "FilaZero",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "program": "lib/views/main.dart"
         },
         {
-            "name": "flutter_application_1 (profile mode)",
+            "name": "FilaZero (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "flutter_application_1 (release mode)",
+            "name": "FilaZero (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

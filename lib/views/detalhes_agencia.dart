@@ -50,7 +50,7 @@ class DetalhesAgencia extends StatelessWidget {
             end: Alignment.bottomRight,
             colors: [
               Color.fromARGB(255, 255, 255, 255),
-              Color.fromARGB(255, 21, 123, 207)
+              Color.fromARGB(255, 156, 39, 176)
             ],
           ),
         ),
@@ -103,7 +103,7 @@ class DetalhesAgencia extends StatelessWidget {
                             'Horário de fechamento: ${agenciaCapacidadeAtual?.horaraioFechamento ?? ''}',
                             style: TextStyle(fontSize: 25)),
                         Text(
-                            'Ocupação: ${agenciaCapacidadeAtual?.lotacao ?? ''}',
+                            'Quantidade de pessoas na fila: ${agenciaCapacidadeAtual?.lotacao ?? ''}',
                             style: TextStyle(fontSize: 25)),
                         SizedBox(height: 20),
                       ],

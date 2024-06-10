@@ -11,7 +11,7 @@ class LoginAdm extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Color.fromARGB(255, 255, 255, 255),
-              Color.fromARGB(255, 21, 123, 207)
+              Color.fromARGB(255, 156, 39, 176)
             ],
           ),
         ),
@@ -73,7 +73,7 @@ class LoginAdm extends StatelessWidget {
                       // Lógica de autenticação aqui
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 225, 139, 9),
+                      backgroundColor: Color.fromARGB(255, 225, 9, 196),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(32.0),
                       ),
@@ -95,7 +95,7 @@ class LoginAdm extends StatelessWidget {
                       // Lógica de autenticação aqui
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 225, 139, 9),
+                      backgroundColor: Color.fromARGB(255, 238, 12, 151),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(32.0),
                       ),

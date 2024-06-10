@@ -11,7 +11,7 @@ class TelaInicial extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Color.fromARGB(255, 255, 255, 255),
-              Color.fromARGB(255, 21, 123, 207)
+              Color.fromARGB(255, 156, 39, 176)
             ],
           ),
         ),
@@ -34,7 +34,7 @@ class TelaInicial extends StatelessWidget {
                       print('Botão Admin pressionado');
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 225, 139, 9),
+                      primary: Color.fromARGB(255, 225, 9, 196),
                       onPrimary: Colors.white,
                       minimumSize: Size(120, 50),
                       shape: RoundedRectangleBorder(
@@ -52,7 +52,7 @@ class TelaInicial extends StatelessWidget {
                       print('Botão Cliente pressionado');
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 225, 139, 9),
+                      primary: Color.fromARGB(255, 225, 9, 196),
                       onPrimary: Colors.white,
                       minimumSize: Size(120, 50),
                       shape: RoundedRectangleBorder(
